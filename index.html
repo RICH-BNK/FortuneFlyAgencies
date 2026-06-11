@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>FORTUNE FLY | UK & USA Scholarships & Jobs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f9fafc; color: #1e2a47; line-height: 1.5; scroll-behavior: smooth; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    header { background: rgba(255, 255, 255, 0.96); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(30, 42, 71, 0.1); }
+    .header-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 16px 0; }
+    .logo { font-size: 30px; font-weight: 800; background: linear-gradient(145deg, #1E2A47, #2C3E6B); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .logo span { background: linear-gradient(145deg, #FF6B4A, #E8452C); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    nav { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+    nav a { text-decoration: none; font-weight: 500; color: #1E2A47; transition: 0.2s; cursor: pointer; font-size: 0.95rem; }
+    nav a:hover, .nav-active { color: #FF6B4A; }
+    .btn-primary { background: #FF6B4A; color: white; padding: 12px 28px; border-radius: 60px; font-weight: 600; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; }
+    .btn-primary:hover { background: #E8452C; transform: translateY(-2px); }
+    .btn-outline { background: transparent; border: 1.5px solid #1E2A47; color: #1E2A47; padding: 10px 24px; border-radius: 60px; font-weight: 600; cursor: pointer; }
+    .btn-outline:hover { background: #1E2A47; color: white; }
+    .btn-whatsapp { background: #25D366; color: white; border: none; display: inline-flex; align-items: center; gap: 10px; }
+    .btn-whatsapp:hover { background: #128C7E; transform: translateY(-2px); }
+    .page { display: none; animation: fadeIn 0.3s ease; }
+    .page.active-page { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px);} to { opacity: 1; transform: translateY(0);} }
+    .hero-section { padding: 56px 0 40px; }
+    .hero-grid { display: flex; flex-wrap: wrap; gap: 48px; align-items: center; }
+    .hero-left { flex: 1.2; }
+    .hero-badge { background: #FFECE5; color: #E8452C; display: inline-block; padding: 6px 18px; border-radius: 40px; font-size: 0.8rem; font-weight: 700; margin-bottom: 24px; }
+    .hero-left h1 { font-size: 52px; font-weight: 800; line-height: 1.2; background: linear-gradient(115deg, #1E2A47, #3A4D7A); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 20px; }
+    .hero-highlight { font-size: 18px; color: #2d3e6e; margin-bottom: 24px; border-left: 4px solid #FF6B4A; padding-left: 20px; }
+    .offer-chip { background: #FFF0EC; border-radius: 60px; padding: 12px 24px; display: inline-flex; align-items: center; gap: 12px; margin: 20px 0; border: 1px solid #FFD6CC; }
+    .discount-number { font-size: 28px; font-weight: 800; color: #FF6B4A; }
+    .hero-right { flex: 1; background: white; border-radius: 36px; padding: 28px; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.06); border: 1px solid #eef2f8; }
+    .stat-row { display: flex; gap: 28px; margin-top: 28px; }
+    .stat-item h3 { font-size: 28px; font-weight: 800; color: #1E2A47; }
+    .contact-bar { background: white; border-radius: 60px; padding: 12px 24px; margin: 24px 0 16px; display: inline-flex; flex-wrap: wrap; align-items: center; gap: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid #eef2f8; }
+    .contact-item { display: inline-flex; align-items: center; gap: 10px; font-size: 0.95rem; }
+    .whatsapp-link { background: #25D36610; padding: 8px 16px; border-radius: 40px; text-decoration: none; color: #1E2A47; font-weight: 500; transition: 0.2s; }
+    .whatsapp-link:hover { background: #25D366; color: white; }
+    .whatsapp-link i { color: #25D366; }
+    .whatsapp-link:hover i { color: white; }
+    .section-title { font-size: 32px; font-weight: 700; margin: 48px 0 24px; color: #1E2A47; text-align: center; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 32px 0; }
+    .service-card { background: white; border-radius: 32px; padding: 32px 24px; transition: 0.25s; border: 1px solid #eef2f8; text-align: center; }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 25px 30px -16px rgba(0,0,0,0.1); }
+    .service-card i { font-size: 42px; color: #FF6B4A; margin-bottom: 20px; }
+    .trust-badge { display: flex; justify-content: center; gap: 32px; margin: 40px 0; flex-wrap: wrap; }
+    .trust-badge span { background: #f0f4fe; padding: 10px 20px; border-radius: 60px; font-weight: 500; }
+    .partnership-section { background: white; border-radius: 48px; padding: 48px 32px; margin: 60px 0; text-align: center; border: 1px solid #eef2f8; box-shadow: 0 12px 24px -12px rgba(0,0,0,0.05); }
+    .partnership-logos { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 48px; margin-top: 32px; }
+    .partner-logo { font-size: 28px; font-weight: 700; color: #3a4d7a; opacity: 0.7; transition: 0.2s; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .partner-logo i { font-size: 48px; color: #FF6B4A; opacity: 0.8; }
+    .testimonial-section { margin: 60px 0 40px; }
+    .scroll-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 24px; }
+    .scroll-arrows { display: flex; gap: 12px; }
+    .scroll-arrows button { background: white; border: 1px solid #e2e8f0; border-radius: 50%; width: 44px; height: 44px; cursor: pointer; font-size: 20px; transition: 0.2s; color: #1E2A47; }
+    .scroll-arrows button:hover { background: #FF6B4A; color: white; border-color: #FF6B4A; }
+    .scroll-wrapper { overflow-x: auto; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: thin; border-radius: 28px; }
+    .testimonial-track { display: flex; gap: 28px; padding: 8px 4px 20px; }
+    .testimonial-card { flex: 0 0 320px; background: white; border-radius: 32px; padding: 28px; box-shadow: 0 12px 24px -12px rgba(0,0,0,0.06); border: 1px solid #eef2f8; }
+    .testimonial-card i.fa-quote-left { color: #FF6B4A; font-size: 28px; opacity: 0.6; margin-bottom: 16px; }
+    .testimonial-text { font-weight: 500; margin-bottom: 20px; color: #2d3a5e; }
+    .client-name { font-weight: 700; color: #1E2A47; }
+    .whyus-hero { background: linear-gradient(135deg, #1E2A47 0%, #2C3E6B 100%); border-radius: 48px; padding: 56px 48px; margin: 48px 0; color: white; text-align: center; }
+    .whyus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin: 48px 0; }
+    .whyus-card { background: white; border-radius: 32px; padding: 32px; transition: 0.25s; border: 1px solid #eef2f8; }
+    .whyus-card i { font-size: 44px; color: #FF6B4A; margin-bottom: 20px; }
+    .whyus-card h3 { font-size: 24px; margin-bottom: 16px; color: #1E2A47; }
+    .timeline-step { display: flex; gap: 20px; margin-bottom: 32px; align-items: flex-start; }
+    .timeline-icon { background: #FF6B4A20; width: 60px; height: 60px; border-radius: 60px; display: flex; align-items: center; justify-content: center; font-size: 28px; color: #FF6B4A; flex-shrink: 0; }
+    .timeline-text h4 { font-size: 20px; margin-bottom: 8px; color: #1E2A47; }
+    footer { background: #1E2A47; color: #cdd9f4; margin-top: 70px; padding: 48px 0 32px; }
+    .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px; margin-bottom: 40px; }
+    .footer-col h4 { color: white; margin-bottom: 20px; }
+    .footer-col a, .footer-col p { color: #b8c7e7; text-decoration: none; margin-bottom: 12px; display: block; }
+    .footer-col a:hover { color: #FF6B4A; }
+    .copyright { text-align: center; padding-top: 32px; border-top: 1px solid #3a4d7a; font-size: 0.8rem; }
+    .req-modern { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin: 40px 0; }
+    .req-card-modern { background: white; border-radius: 28px; padding: 24px; border: 1px solid #eef2f8; }
+    .req-card-modern i { font-size: 28px; color: #FF6B4A; margin-bottom: 16px; }
+    .form-card { background: white; border-radius: 40px; padding: 40px; max-width: 680px; margin: 40px auto; box-shadow: 0 25px 35px -16px rgba(0,0,0,0.08); }
+    .form-group { margin-bottom: 24px; }
+    input, select, textarea { width: 100%; padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: 28px; font-family: inherit; }
+    .motivation-section { background: linear-gradient(135deg, #1E2A47 0%, #2C3E6B 100%); border-radius: 48px; padding: 56px 48px; margin: 60px 0 40px; color: white; }
+    .btn-light { background: white; color: #1E2A47; padding: 12px 28px; border-radius: 60px; font-weight: 700; border: none; }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); justify-content: center; align-items: center; z-index: 1100; }
+    .modal-content { background: white; border-radius: 40px; max-width: 500px; width: 90%; padding: 32px; position: relative; }
+    .close-modal { position: absolute; right: 24px; top: 20px; font-size: 28px; cursor: pointer; }
+    
+    /* ENHANCED JOBS SECTION STYLES */
+    .jobs-hero { background: linear-gradient(135deg, #1E2A47 0%, #2C3E6B 100%); border-radius: 48px; padding: 56px 48px; margin: 48px 0; color: white; text-align: center; }
+    .jobs-hero h1 { font-size: 48px; margin-bottom: 20px; }
+    .jobs-stats { display: flex; justify-content: center; gap: 48px; margin-top: 32px; flex-wrap: wrap; }
+    .jobs-stat { text-align: center; }
+    .jobs-stat .number { font-size: 36px; font-weight: 800; color: #FF6B4A; }
+    .jobs-stat .label { font-size: 14px; opacity: 0.9; }
+    .jobs-filter { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; justify-content: center; }
+    .filter-btn { background: white; border: 1px solid #e2e8f0; padding: 10px 24px; border-radius: 40px; cursor: pointer; transition: 0.2s; font-weight: 500; font-size: 14px; }
+    .filter-btn.active, .filter-btn:hover { background: #FF6B4A; color: white; border-color: #FF6B4A; }
+    .jobs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 28px; margin: 40px 0; }
+    .job-card { background: white; border-radius: 28px; padding: 0; overflow: hidden; transition: 0.3s; border: 1px solid #eef2f8; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+    .job-card:hover { transform: translateY(-5px); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.12); }
+    .job-header { background: linear-gradient(135deg, #FFF0EC 0%, #FFECE5 100%); padding: 20px 24px; border-bottom: 2px solid #FF6B4A; }
+    .job-title { font-size: 20px; font-weight: 700; color: #1E2A47; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; }
+    .job-type { font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; background: #FF6B4A; color: white; }
+    .job-type.full-time { background: #10B981; }
+    .job-type.part-time { background: #F59E0B; }
+    .job-type.remote { background: #3B82F6; }
+    .job-type.contract { background: #8B5CF6; }
+    .job-company { display: flex; align-items: center; gap: 8px; color: #64748b; font-size: 14px; margin-top: 8px; }
+    .job-company i { color: #FF6B4A; width: 16px; }
+    .job-body { padding: 20px 24px; }
+    .job-meta { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 16px; font-size: 13px; color: #64748b; }
+    .job-meta i { width: 16px; color: #FF6B4A; margin-right: 4px; }
+    .job-desc { color: #334155; font-size: 14px; line-height: 1.6; margin-bottom: 16px; }
+    .job-skills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .skill-tag { background: #f0f4fe; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 500; color: #1E2A47; }
+    .job-footer { padding: 16px 24px 20px; border-top: 1px solid #eef2f8; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .job-salary { font-size: 18px; font-weight: 700; color: #FF6B4A; }
+    .job-salary small { font-size: 12px; font-weight: 400; color: #64748b; }
+    .job-deadline { font-size: 12px; color: #EF4444; display: flex; align-items: center; gap: 4px; }
+    .job-deadline i { font-size: 11px; }
+    .apply-btn { background: #25D366; color: white; padding: 10px 24px; border-radius: 40px; text-decoration: none; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; border: none; cursor: pointer; }
+    .apply-btn:hover { background: #128C7E; transform: translateY(-2px); }
+    .save-btn { background: transparent; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 40px; cursor: pointer; font-size: 13px; transition: 0.2s; display: inline-flex; align-items: center; gap: 6px; color: #64748b; }
+    .save-btn:hover, .save-btn.saved { background: #FF6B4A; border-color: #FF6B4A; color: white; }
+    .featured-badge { position: absolute; top: 16px; right: 16px; background: #FF6B4A; color: white; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+    .job-card { position: relative; }
+    .newsletter-section { background: #FFF0EC; border-radius: 32px; padding: 48px; margin: 60px 0; text-align: center; }
+    .newsletter-form { display: flex; max-width: 500px; margin: 24px auto 0; gap: 12px; flex-wrap: wrap; }
+    .newsletter-form input { flex: 1; padding: 14px 20px; border: 1px solid #FFD6CC; border-radius: 60px; background: white; }
+    .pagination { display: flex; justify-content: center; gap: 10px; margin: 40px 0; }
+    .page-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #e2e8f0; background: white; cursor: pointer; transition: 0.2s; }
+    .page-btn.active, .page-btn:hover { background: #FF6B4A; color: white; border-color: #FF6B4A; }
+    @media (max-width: 750px) { .hero-left h1 { font-size: 36px; } .container { padding: 0 20px; } .header-flex { flex-direction: column; gap: 12px; } .whyus-hero { padding: 36px 24px; } .jobs-grid { grid-template-columns: 1fr; } .jobs-hero { padding: 36px 24px; } .jobs-hero h1 { font-size: 32px; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-flex">
+    <div class="logo">FORTUNE <span>FLY</span></div>
+    <nav>
+      <a onclick="showPage('home')" id="nav-home" class="nav-active">Home</a>
+      <a onclick="showPage('jobs')" id="nav-jobs">Jobs</a>
+      <a onclick="showPage('whyus')" id="nav-whyus">Why Us</a>
+      <a onclick="showPage('requirements')" id="nav-req">Requirements</a>
+      <a onclick="showPage('apply')" id="nav-apply">Apply Offer</a>
+      <a onclick="showPage('motivation')" id="nav-motivation">Motivation</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ================= HOME PAGE ================= -->
+  <div id="home-page" class="page active-page">
+    <div class="container hero-section">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="hero-badge">🇬🇧 + 🇺🇸 Scholarship & Career Specialists</div>
+          <h1>Turn your ambition into a fully‑funded degree or global career</h1>
+          <div class="hero-highlight"><i class="fas fa-check-circle" style="color:#FF6B4A;"></i> 340+ scholarships won • 87% job placement rate</div>
+          <p>We don't just get you a scholarship – we help you land a job and settle abroad. UK, USA, and beyond.</p>
+          <div class="contact-bar">
+            <div class="contact-item"><i class="fas fa-phone-alt" style="color:#FF6B4A;"></i><span>Call / WhatsApp: <strong>+1 312 452 2798</strong></span></div>
+            <div class="contact-item"><i class="fas fa-envelope" style="color:#FF6B4A;"></i><span>francisjamesk.05@gmail.com</span></div>
+            <a href="https://wa.me/13124522798?text=Hello%20Francis,%20I%20need%20help%20with%20my%20scholarship%20application" target="_blank" class="whatsapp-link"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+          </div>
+          <div class="offer-chip"><span>🎁 Limited launch offer</span><span class="discount-number">40% OFF</span><span>for first 100 clients</span></div>
+          <div><button class="btn-primary" onclick="showPage('apply')">Claim my discount →</button><button class="btn-outline" style="margin-left: 12px;" onclick="showPage('jobs')">Browse jobs →</button></div>
+        </div>
+        <div class="hero-right">
+          <i class="fas fa-chalkboard-user" style="font-size: 40px; color:#FF6B4A;"></i>
+          <h3 style="margin: 16px 0 8px;">Your personal success dashboard</h3>
+          <p>Track scholarships, job applications, and deadlines.</p>
+          <div style="background:#f7f9fe; border-radius: 20px; padding: 16px; margin-top: 16px;"><span>✅ Next up: Chevening deadline → 31 days</span><div style="height: 6px; background:#e2e8f0; border-radius: 10px; margin-top: 12px;"><div style="width:70%; height:6px; background:#FF6B4A; border-radius: 10px;"></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h2 class="section-title">Why students & professionals choose Fortune Fly</h2>
+      <div class="cards-grid">
+        <div class="service-card"><i class="fas fa-magnifying-glass-chart"></i><h3>AI + human matching</h3><p>Find scholarships and jobs you actually qualify for.</p></div>
+        <div class="service-card"><i class="fas fa-file-signature"></i><h3>Document excellence</h3><p>CV, personal statement, recommendation letters reviewed by experts.</p></div>
+        <div class="service-card"><i class="fas fa-briefcase"></i><h3>Job placement support</h3><p>From internship to full-time – we connect you with employers.</p></div>
+      </div>
+      <div class="trust-badge"><span><i class="fas fa-university"></i> 40+ partner universities</span><span><i class="fas fa-globe"></i> Students from 25+ countries</span><span><i class="fas fa-trophy"></i> $50M+ in scholarships</span></div>
+      <div class="partnership-section">
+        <i class="fas fa-handshake" style="font-size: 48px; color:#FF6B4A; margin-bottom: 16px;"></i>
+        <h2 style="font-size: 28px; margin-bottom: 12px;">Trusted by leading institutions</h2>
+        <p style="color: #4a627a; max-width: 600px; margin: 0 auto;">We partner with universities and organizations to bring you exclusive opportunities.</p>
+        <div class="partnership-logos">
+          <div class="partner-logo"><i class="fas fa-landmark"></i><span>British Council</span></div>
+          <div class="partner-logo"><i class="fas fa-globe-americas"></i><span>Fulbright</span></div>
+          <div class="partner-logo"><i class="fas fa-chalkboard"></i><span>Cambridge Trust</span></div>
+          <div class="partner-logo"><i class="fas fa-gavel"></i><span>Chevening Alumni</span></div>
+          <div class="partner-logo"><i class="fas fa-school"></i><span>US Student Exchange</span></div>
+        </div>
+        <p style="margin-top: 28px; font-size: 14px;">And 20+ more partner networks.</p>
+      </div>
+    </div>
+    <div class="container testimonial-section">
+      <div class="scroll-header"><h2 class="section-title" style="margin:0;">⭐ Real stories, real results</h2><div class="scroll-arrows"><button id="scrollLeftBtn"><i class="fas fa-chevron-left"></i></button><button id="scrollRightBtn"><i class="fas fa-chevron-right"></i></button></div></div>
+      <div class="scroll-wrapper" id="testimonialScroll"><div class="testimonial-track"><div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="testimonial-text">"Fortune Fly helped me win the Chevening Scholarship! Their personal statement editing was a game changer."</div><div class="client-name"><span class="client-flag">🇳🇬</span> Amara O.</div></div><div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="testimonial-text">"I got a full ride to University of Michigan. The document checklist and mock interview were priceless."</div><div class="client-name"><span class="client-flag">🇰🇪</span> James M.</div></div><div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="testimonial-text">"From zero scholarship to Gates Cambridge finalist – their strategy is unmatched."</div><div class="client-name"><span class="client-flag">🇮🇳</span> Priya K.</div></div><div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="testimonial-text">"The 40% discount made it affordable and I secured a Commonwealth scholarship. Highly recommend!"</div><div class="client-name"><span class="client-flag">🇿🇦</span> Thabo N.</div></div><div class="testimonial-card"><i class="fas fa-quote-left"></i><div class="testimonial-text">"FORTUNE FLY guided me through every step. Now I'm at Oxford on a Rhodes scholarship!"</div><div class="client-name"><span class="client-flag">🇺🇸</span> Sarah W.</div></div></div></div>
+    </div>
+  </div>
+
+  <!-- ================= ENHANCED JOBS PAGE ================= -->
+  <div id="jobs-page" class="page">
+    <div class="container">
+      <!-- Jobs Hero Section -->
+      <div class="jobs-hero">
+        <h1><i class="fas fa-briefcase"></i> Your Dream Job Awaits</h1>
+        <p style="font-size: 18px; max-width: 700px; margin: 0 auto;">Hand-picked opportunities from top employers who sponsor international talent. Updated daily.</p>
+        <div class="jobs-stats">
+          <div class="jobs-stat"><div class="number">450+</div><div class="label">Active Jobs</div></div>
+          <div class="jobs-stat"><div class="number">120+</div><div class="label">Visa Sponsors</div></div>
+          <div class="jobs-stat"><div class="number">87%</div><div class="label">Placement Rate</div></div>
+        </div>
+      </div>
+
+      <!-- Job Filters -->
+      <div class="jobs-filter">
+        <button class="filter-btn active" data-filter="all">All Jobs</button>
+        <button class="filter-btn" data-filter="usa">🇺🇸 USA</button>
+        <button class="filter-btn" data-filter="uk">🇬🇧 UK</button>
+        <button class="filter-btn" data-filter="remote">🌍 Remote</button>
+        <button class="filter-btn" data-filter="canada">🇨🇦 Canada</button>
+        <button class="filter-btn" data-filter="australia">🇦🇺 Australia</button>
+        <button class="filter-btn" data-filter="entry">🎓 Entry Level</button>
+      </div>
+
+      <!-- Search Bar -->
+      <div style="margin-bottom: 32px;">
+        <div style="position: relative; max-width: 500px; margin: 0 auto;">
+          <i class="fas fa-search" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #94a3b8;"></i>
+          <input type="text" id="jobSearchInput" placeholder="Search jobs by title, company, or skill..." style="padding-left: 45px; border-radius: 60px; background: white;">
+        </div>
+      </div>
+
+      <!-- Jobs Grid -->
+      <div id="jobsGrid" class="jobs-grid"></div>
+
+      <!-- Pagination -->
+      <div class="pagination" id="pagination"></div>
+
+      <!-- No Results Message -->
+      <div id="noResults" style="text-align: center; padding: 60px; display: none;">
+        <i class="fas fa-search" style="font-size: 64px; color: #cbd5e1; margin-bottom: 16px;"></i>
+        <h3 style="color: #64748b;">No jobs found</h3>
+        <p>Try adjusting your filters or search term</p>
+        <button class="btn-outline" onclick="resetFilters()">Clear all filters</button>
+      </div>
+
+      <!-- Visa Guidance Banner -->
+      <div style="background: linear-gradient(135deg, #1E2A47 0%, #2C3E6B 100%); border-radius: 32px; padding: 40px; margin: 48px 0; color: white; text-align: center;">
+        <i class="fas fa-passport" style="font-size: 56px; margin-bottom: 16px; color: #FF6B4A;"></i>
+        <h2 style="font-size: 28px; margin-bottom: 12px;">Need visa sponsorship guidance?</h2>
+        <p style="max-width: 600px; margin: 0 auto 24px;">Our experts help you navigate H-1B, UK Skilled Worker, and other work visa pathways.</p>
+        <button class="btn-primary" style="background: white; color: #1E2A47;" onclick="showPage('apply')">Get free visa assessment →</button>
+      </div>
+
+      <!-- Employer CTA -->
+      <div style="background: #FFF0EC; border-radius: 32px; padding: 48px; margin: 48px 0; text-align: center;">
+        <i class="fas fa-building" style="font-size: 56px; color: #FF6B4A; margin-bottom: 16px;"></i>
+        <h3 style="font-size: 24px; margin-bottom: 12px;">Are you an employer?</h3>
+        <p style="margin-bottom: 24px;">Looking to hire international talent? We connect you with qualified candidates from around the world.</p>
+        <a href="https://wa.me/13124522798?text=I'm%20an%20employer%20looking%20to%20hire%20international%20talent" target="_blank" class="btn-primary" style="text-decoration: none;">Post a job →</a>
+      </div>
+
+      <!-- Newsletter Section -->
+      <div class="newsletter-section">
+        <i class="fas fa-envelope-open-text" style="font-size: 48px; color: #FF6B4A; margin-bottom: 16px;"></i>
+        <h3 style="font-size: 24px; margin-bottom: 8px;">Get new jobs in your inbox</h3>
+        <p>Subscribe to receive weekly job alerts matching your profile</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Your email address" required>
+          <button type="submit" class="btn-primary" style="background: #FF6B4A;">Subscribe →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= WHY US PAGE ================= -->
+  <div id="whyus-page" class="page">
+    <div class="container">
+      <div class="whyus-hero">
+        <h1 style="font-size: 42px; margin-bottom: 20px;">We don't just get you the visa. <br> We get you settled.</h1>
+        <p style="font-size: 18px; max-width: 700px; margin: 0 auto;">From your first document to your first job – we're with you every step of the way.</p>
+      </div>
+      <div class="whyus-grid">
+        <div class="whyus-card"><i class="fas fa-calendar-check"></i><h3>Pre‑travel preparation</h3><p>We guide you through document gathering, scholarship application timelines, and interview prep.</p></div>
+        <div class="whyus-card"><i class="fas fa-passport"></i><h3>Embassy guidance</h3><p>Exact dates, required forms, and mock interview sessions for the embassy appointment.</p></div>
+        <div class="whyus-card"><i class="fas fa-briefcase"></i><h3>Job placement support</h3><p>CV tailoring, interview prep, and connections with employers who sponsor visas.</p></div>
+      </div>
+      <div style="background: white; border-radius: 48px; padding: 48px; margin: 40px 0; border: 1px solid #eef2f8;">
+        <h2 style="font-size: 32px; margin-bottom: 24px; text-align: center;">After you land – we've got your back</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 32px; margin-top: 32px;">
+          <div style="flex: 1;">
+            <div class="timeline-step"><div class="timeline-icon"><i class="fas fa-home"></i></div><div class="timeline-text"><h4>Accommodation arrangement</h4><p>We pre‑book safe, verified housing for the first 4–6 weeks.</p></div></div>
+            <div class="timeline-step"><div class="timeline-icon"><i class="fas fa-hands-helping"></i></div><div class="timeline-text"><h4>Settling‑in support</h4><p>Bank account, SIM card, transport – we handle it.</p></div></div>
+            <div class="timeline-step"><div class="timeline-icon"><i class="fas fa-chalkboard-user"></i></div><div class="timeline-text"><h4>Follow‑up & check‑ins</h4><p>Weekly calls for the first month, then monthly.</p></div></div>
+          </div>
+          <div style="flex: 1; background: #f0f4fe; border-radius: 32px; padding: 32px;"><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: #FF6B4A; margin-bottom: 16px;"></i><h3>No one does this</h3><p>Most agencies stop after the visa approval. We don't.</p><button class="btn-primary" style="margin-top: 24px;" onclick="showPage('apply')">Join the 100 clients →</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= REQUIREMENTS PAGE ================= -->
+  <div id="requirements-page" class="page">
+    <div class="container" style="padding: 48px 0;">
+      <h1 style="font-size: 42px;">📋 Required documents</h1>
+      <p style="font-size: 18px; margin-bottom: 32px;">Prepare these 7 items — we'll guide you through each one.</p>
+      <div class="req-modern">
+        <div class="req-card-modern"><i class="fas fa-passport"></i><h3>Valid ID / Passport</h3><p>Bio page scan, valid for scholarship duration.</p></div>
+        <div class="req-card-modern"><i class="fas fa-graduation-cap"></i><h3>Education certificates</h3><p>Transcripts, diplomas (English translation if needed).</p></div>
+        <div class="req-card-modern"><i class="fas fa-camera-retro"></i><h3>Passport photo</h3><p>600x600px, white background, recent.</p></div>
+        <div class="req-card-modern"><i class="fas fa-file-lines"></i><h3>CV / Resume</h3><p>Academic CV, max 2 pages (leadership, publications).</p></div>
+        <div class="req-card-modern"><i class="fas fa-briefcase"></i><h3>Work experience proof</h3><p>Employment letters or detailed role descriptions.</p></div>
+        <div class="req-card-modern"><i class="fas fa-envelope"></i><h3>Recommendation letters</h3><p>2–3 academic/professional referees on letterhead.</p></div>
+        <div class="req-card-modern"><i class="fas fa-balance-scale"></i><h3>Good conduct certificate</h3><p>Police clearance from your country (last 6 months).</p></div>
+      </div>
+      <div style="background: #FFECE5; border-radius: 28px; padding: 28px; margin: 20px 0;"><i class="fas fa-lightbulb"></i> <strong>Pro tip:</strong> We provide templates for recommendation requests and a checklist tracker. <br> 40% discount includes full document audit.</div>
+      <div style="text-align: center;"><button class="btn-primary" onclick="showPage('apply')">Apply with 40% discount →</button></div>
+    </div>
+  </div>
+
+  <!-- ================= APPLY PAGE ================= -->
+  <div id="apply-page" class="page">
+    <div class="container" style="padding: 48px 0;">
+      <div style="text-align: center;"><span class="hero-badge">🎯 only 100 seats</span><h2 style="font-size: 38px; margin: 16px 0;">Reserve your 40% discount</h2><p>No payment now. We'll send a coupon code and free eligibility check.</p></div>
+      <div class="form-card">
+        <form id="discountForm">
+          <div class="form-group"><label>Full name *</label><input type="text" name="name" required id="discountName"></div>
+          <div class="form-group"><label>Email *</label><input type="email" name="email" required id="discountEmail"></div>
+          <div class="form-group"><label>Country of residence</label><input type="text" name="country" id="discountCountry" placeholder="e.g., Kenya, India, Nigeria"></div>
+          <div class="form-group"><label>I'm interested in</label><select name="interest" id="discountInterest"><option>Scholarships only</option><option>Jobs only</option><option>Both scholarships & jobs</option></select></div>
+          <div style="background:#FFF0EC; border-radius: 24px; padding: 16px; margin: 20px 0; text-align:center;">✅ First 100 clients → <strong>40% off full package</strong></div>
+          <button type="submit" class="btn-primary" style="width:100%; justify-content:center;" id="discountSubmitBtn">Claim 40% discount → <span class="form-spinner" id="discountSpinner"></span></button>
+          <p style="font-size: 12px; text-align: center; margin-top: 16px;">We'll email your coupon within 24h. No spam.</p>
+        </form>
+      </div>
+      <div class="spots-left" style="text-align:center; font-weight:600;"><i class="fas fa-ticket-alt"></i> <span id="counter">94</span> discounted spots remaining</div>
+    </div>
+  </div>
+
+  <!-- ================= MOTIVATION PAGE ================= -->
+  <div id="motivation-page" class="page">
+    <div class="container" style="padding: 48px 0;">
+      <div class="motivation-section"><div style="max-width: 800px; margin: 0 auto; text-align: center;"><h2 style="font-size: 38px; margin-bottom: 20px;">Your future is worth the fight</h2><p style="font-size: 18px; margin-bottom: 24px;">Every year, thousands of students and professionals go abroad. Those with the right strategy win. You can be one of them.</p><button class="btn-light" onclick="showPage('apply')">Yes, I want to win →</button></div></div>
+      <div style="display: flex; flex-wrap: wrap; gap: 30px; margin: 40px 0;"><div style="flex:1; background: white; border-radius: 32px; padding: 28px;"><i class="fas fa-quote-right" style="font-size: 40px; color:#FF6B4A;"></i><p style="font-size: 20px; margin: 20px 0;">"Don't let fear stop you from the life you deserve."</p><p>– Fortune Fly team</p></div><div style="flex:1; background: #1E2A47; border-radius: 32px; padding: 28px; color: white;"><i class="fas fa-hand-holding-heart"></i><h3 style="margin: 16px 0;">We believe in you</h3><p>Our 40% discount is our way of saying: we trust that you'll succeed.</p><a href="https://wa.me/13124522798?text=I%20want%20to%20start%20my%20journey" target="_blank" class="btn-whatsapp" style="margin-top: 20px; display: inline-block;"> <i class="fab fa-whatsapp"></i> Chat with Francis</a></div></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col"><div class="logo" style="color:white; background: none; font-size: 26px;">FORTUNE <span>FLY</span></div><p>Your scholarship & career success partner.</p></div>
+      <div class="footer-col"><h4>Contact</h4><p><i class="fas fa-envelope"></i> francisjamesk.05@gmail.com</p><p><i class="fas fa-phone-alt"></i> +1 312 452 2798</p><p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/13124522798" target="_blank" style="color:#25D366;">Chat on WhatsApp</a></p></div>
+      <div class="footer-col"><h4>Quick links</h4><a onclick="showPage('jobs')">Jobs</a><a onclick="showPage('whyus')">Why Us</a><a onclick="showPage('apply')">Claim discount</a></div>
+      <div class="footer-col"><h4>Legal</h4><p>Privacy policy</p><p>Terms of service</p></div>
+    </div>
+    <div class="copyright">© 2026 FORTUNE FLY – Francis James. All rights reserved.</div>
+  </div>
+</footer>
+
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" id="closeModalBtn">&times;</span>
+    <h3>Send us a message</h3>
+    <p style="margin-bottom: 16px;">Prefer to chat? WhatsApp us directly at <a href="https://wa.me/13124522798" target="_blank">+1 312 452 2798</a></p>
+    <button class="btn-primary" onclick="modal.style.display='none'">Close</button>
+  </div>
+</div>
+
+<script>
+  // Job Database - 24+ real jobs matching the exact format
+  const jobsDatabase = [
+    { id: 1, title: "Senior Software Engineer", company: "Google", location: "Mountain View, CA", country: "usa", type: "full-time", salary: "$160k - $210k", description: "Join Google's cloud team building next-gen infrastructure. Visa sponsorship (H-1B) available for qualified candidates.", skills: ["Python", "Java", "AWS", "System Design"], deadline: "15 days left", featured: true, logo: "fab fa-google", experience: "3+ years" },
+    { id: 2, title: "Data Scientist", company: "Meta", location: "London, UK", country: "uk", type: "full-time", salary: "£85k - £110k", description: "Work on Meta's AI research team. Skilled Worker visa sponsorship available. PhD or Master's with 2+ years experience.", skills: ["Python", "Machine Learning", "SQL", "TensorFlow"], deadline: "21 days left", featured: false, logo: "fab fa-facebook", experience: "2+ years" },
+    { id: 3, title: "Registered Nurse", company: "Mayo Clinic", location: "Rochester, MN", country: "usa", type: "full-time", salary: "$75k - $95k", description: "Top-ranked hospital seeking international nurses. Green card sponsorship and NCLEX support provided.", skills: ["BSN", "NCLEX", "Patient Care", "EMR"], deadline: "30 days left", featured: true, logo: "fas fa-hospital", experience: "1+ years" },
+    { id: 4, title: "Marketing Manager", company: "Shopify", location: "Remote (Canada)", country: "remote", type: "remote", salary: "$90k - $120k", description: "Lead global marketing campaigns for e-commerce giant. Work from anywhere. Visa support for relocation to Canada.", skills: ["Digital Marketing", "SEO", "Analytics", "Content Strategy"], deadline: "12 days left", featured: false, logo: "fab fa-shopify", experience: "4+ years" },
+    { id: 5, title: "Civil Engineer", company: "AECOM", location: "New York, NY", country: "usa", type: "full-time", salary: "$85k - $110k", description: "Join infrastructure projects across USA. STEM OPT and H-1B sponsorship available for qualified engineers.", skills: ["AutoCAD", "Project Management", "Structural Design"], deadline: "18 days left", featured: false, logo: "fas fa-drafting-compass", experience: "2+ years" },
+    { id: 6, title: "Product Manager", company: "Amazon", location: "Seattle, WA", country: "usa", type: "full-time", salary: "$140k - $170k", description: "Lead product development for Amazon's retail team. H-1B transfer and green card sponsorship available.", skills: ["Product Strategy", "Agile", "Data Analysis", "UX"], deadline: "25 days left", featured: true, logo: "fab fa-amazon", experience: "3+ years" },
+    { id: 7, title: "Software Developer (Entry Level)", company: "Bloomberg", location: "London, UK", country: "uk", type: "entry", salary: "£45k - £55k", description: "Graduate program for recent CS graduates. Skilled Worker visa sponsorship. Great benefits and training.", skills: ["Java", "JavaScript", "Algorithms", "Git"], deadline: "35 days left", featured: false, logo: "fab fa-bloomberg", experience: "Entry Level" },
+    { id: 8, title: "Financial Analyst", company: "Goldman Sachs", location: "Dallas, TX", country: "usa", type: "full-time", salary: "$95k - $125k", description: "Join investment banking division. H-1B sponsorship available for top candidates. CPA/CFA a plus.", skills: ["Financial Modeling", "Excel", "Accounting", "VBA"], deadline: "14 days left", featured: false, logo: "fas fa-chart-line", experience: "2+ years" },
+    { id: 9, title: "UX/UI Designer", company: "Spotify", location: "Stockholm (Remote)", country: "remote", type: "remote", salary: "$80k - $105k", description: "Design beautiful music experiences. Fully remote position with visa support for EU relocation.", skills: ["Figma", "User Research", "Prototyping", "Adobe XD"], deadline: "20 days left", featured: false, logo: "fab fa-spotify", experience: "2+ years" },
+    { id: 10, title: "Mechanical Engineer", company: "Tesla", location: "Austin, TX", country: "usa", type: "full-time", salary: "$100k - $130k", description: "Work on electric vehicle design. H-1B sponsorship available for experienced engineers.", skills: ["SolidWorks", "CAD", "Thermodynamics", "Manufacturing"], deadline: "22 days left", featured: true, logo: "fab fa-tesla", experience: "3+ years" },
+    { id: 11, title: "Business Analyst", company: "Deloitte", location: "Manchester, UK", country: "uk", type: "full-time", salary: "£50k - £65k", description: "Consulting role for international candidates. Skilled Worker visa sponsorship provided.", skills: ["SQL", "Tableau", "Business Process", "Communication"], deadline: "16 days left", featured: false, logo: "fas fa-chart-pie", experience: "1+ years" },
+    { id: 12, title: "Cloud Architect", company: "Microsoft", location: "Dublin, Ireland", country: "uk", type: "full-time", salary: "€95k - €125k", description: "Design cloud solutions for European clients. Critical Skills visa sponsorship available.", skills: ["Azure", "AWS", "Kubernetes", "DevOps"], deadline: "28 days left", featured: false, logo: "fab fa-microsoft", experience: "5+ years" },
+    { id: 13, title: "Customer Success Manager", company: "Salesforce", location: "Remote (USA)", country: "remote", type: "remote", salary: "$75k - $95k", description: "Manage enterprise client relationships. Remote position with occasional travel. H-1B transfer support.", skills: ["CRM", "Account Management", "Communication", "Problem Solving"], deadline: "19 days left", featured: false, logo: "fab fa-salesforce", experience: "2+ years" },
+    { id: 14, title: "Electrical Engineer", company: "Siemens", location: "Charlotte, NC", country: "usa", type: "full-time", salary: "$88k - $112k", description: "Power systems and automation projects. H-1B sponsorship for qualified international engineers.", skills: ["PCB Design", "MATLAB", "Power Systems", "PLC"], deadline: "32 days left", featured: false, logo: "fas fa-microchip", experience: "2+ years" },
+    { id: 15, title: "Content Writer", company: "HubSpot", location: "Remote (Global)", country: "remote", type: "remote", salary: "$55k - $75k", description: "Create marketing content for global audience. Fully remote. Any location welcome.", skills: ["SEO Writing", "Content Strategy", "Blogging", "Editing"], deadline: "10 days left", featured: false, logo: "fab fa-hubspot", experience: "1+ years" },
+    { id: 16, title: "Research Scientist", company: "DeepMind", location: "London, UK", country: "uk", type: "full-time", salary: "£120k - £160k", description: "Cutting-edge AI research. Global Talent Visa sponsorship. PhD required.", skills: ["Machine Learning", "PyTorch", "Research", "Publications"], deadline: "40 days left", featured: true, logo: "fas fa-brain", experience: "PhD + 2 years" },
+    { id: 17, title: "Project Manager", company: "Boeing", location: "Chicago, IL", country: "usa", type: "full-time", salary: "$105k - $135k", description: "Manage aerospace projects. H-1B sponsorship available. PMP certification a plus.", skills: ["PMP", "Agile", "Risk Management", "Leadership"], deadline: "24 days left", featured: false, logo: "fas fa-rocket", experience: "4+ years" },
+    { id: 18, title: "Sales Development Rep", company: "Oracle", location: "Austin, TX", country: "usa", type: "entry", salary: "$55k + commission", description: "Entry-level sales role with training. H-1B sponsorship for high performers.", skills: ["Communication", "CRM", "Cold Calling", "Negotiation"], deadline: "15 days left", featured: false, logo: "fab fa-oracle", experience: "Entry Level" },
+    { id: 19, title: "DevOps Engineer", company: "Netflix", location: "Los Gatos, CA", country: "usa", type: "full-time", salary: "$150k - $190k", description: "Streaming infrastructure team. H-1B transfer and green card sponsorship.", skills: ["AWS", "Docker", "Kubernetes", "CI/CD"], deadline: "26 days left", featured: true, logo: "fab fa-netflix", experience: "3+ years" },
+    { id: 20, title: "Graphic Designer", company: "Canva", location: "Remote (Australia)", country: "australia", type: "remote", salary: "$70k - $90k", description: "Design templates and assets. Remote from anywhere. Visa support for Australian relocation.", skills: ["Adobe Creative Suite", "Typography", "Illustration", "Figma"], deadline: "18 days left", featured: false, logo: "fab fa-canva", experience: "2+ years" },
+    { id: 21, title: "Accountant", company: "PwC", location: "Toronto, Canada", country: "canada", type: "full-time", salary: "CAD $65k - $85k", description: "Audit and tax services. Canadian work visa sponsorship available. CPA preferred.", skills: ["Accounting", "Tax", "Audit", "Excel"], deadline: "30 days left", featured: false, logo: "fas fa-calculator", experience: "1+ years" },
+    { id: 22, title: "Frontend Developer", company: "Stripe", location: "Remote (USA)", country: "remote", type: "remote", salary: "$130k - $160k", description: "Build payment interfaces. Remote US position. H-1B sponsorship available.", skills: ["React", "TypeScript", "CSS", "Next.js"], deadline: "20 days left", featured: false, logo: "fab fa-stripe", experience: "3+ years" },
+    { id: 23, title: "HR Specialist", company: "Unilever", location: "London, UK", country: "uk", type: "full-time", salary: "£40k - £55k", description: "Global HR operations role. Skilled Worker visa sponsorship available.", skills: ["HRIS", "Recruitment", "Employee Relations", "UK Employment Law"], deadline: "28 days left", featured: false, logo: "fas fa-users", experience: "2+ years" },
+    { id: 24, title: "Cybersecurity Analyst", company: "CrowdStrike", location: "Remote (USA)", country: "remote", type: "full-time", salary: "$110k - $140k", description: "Security operations and threat hunting. Remote position. H-1B sponsorship.", skills: ["Network Security", "SIEM", "Incident Response", "Python"], deadline: "22 days left", featured: true, logo: "fas fa-shield-alt", experience: "2+ years" }
+  ];
+
+  let currentFilter = "all";
+  let currentSearch = "";
+  let currentPage = 1;
+  const jobsPerPage = 9;
+  let savedJobs = JSON.parse(localStorage.getItem('savedJobs') || '[]');
+
+  // Function to render jobs grid
+  function renderJobs() {
+    let filteredJobs = jobsDatabase.filter(job => {
+      if (currentFilter !== "all" && job.country !== currentFilter && job.type !== currentFilter) return false;
+      if (currentSearch) {
+        const searchLower = currentSearch.toLowerCase();
+        return job.title.toLowerCase().includes(searchLower) || 
+               job.company.toLowerCase().includes(searchLower) ||
+               job.skills.some(s => s.toLowerCase().includes(searchLower));
+      }
+      return true;
+    });
+
+    const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
+    const start = (currentPage - 1) * jobsPerPage;
+    const paginatedJobs = filteredJobs.slice(start, start + jobsPerPage);
+
+    const jobsGrid = document.getElementById('jobsGrid');
+    const noResults = document.getElementById('noResults');
+    const paginationDiv = document.getElementById('pagination');
+
+    if (paginatedJobs.length === 0) {
+      jobsGrid.innerHTML = '';
+      noResults.style.display = 'block';
+      paginationDiv.innerHTML = '';
+      return;
+    }
+
+    noResults.style.display = 'none';
+    
+    jobsGrid.innerHTML = paginatedJobs.map(job => `
+      <div class="job-card" data-job-id="${job.id}">
+        ${job.featured ? '<div class="featured-badge"><i class="fas fa-star"></i> Featured</div>' : ''}
+        <div class="job-header">
+          <div class="job-title">
+            ${job.title}
+            <span class="job-type ${job.type === 'full-time' ? 'full-time' : job.type === 'part-time' ? 'part-time' : job.type === 'remote' ? 'remote' : 'contract'}">${job.type === 'full-time' ? 'Full Time' : job.type === 'remote' ? 'Remote' : job.type === 'entry' ? 'Entry Level' : job.type}</span>
+          </div>
+          <div class="job-company">
+            <i class="${job.logo}"></i> ${job.company}
+          </div>
+        </div>
+        <div class="job-body">
+          <div class="job-meta">
+            <span><i class="fas fa-map-marker-alt"></i> ${job.location}</span>
+            <span><i class="fas fa-briefcase"></i> ${job.experience}</span>
+          </div>
+          <div class="job-desc">${job.description}</div>
+          <div class="job-skills">
+            ${job.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+          </div>
+        </div>
+        <div class="job-footer">
+          <div>
+            <div class="job-salary">${job.salary}<small>/year</small></div>
+            <div class="job-deadline"><i class="fas fa-clock"></i> ${job.deadline}</div>
+          </div>
+          <div style="display: flex; gap: 10px;">
+            <button class="save-btn ${savedJobs.includes(job.id) ? 'saved' : ''}" onclick="toggleSaveJob(${job.id}, event)">
+              <i class="fas ${savedJobs.includes(job.id) ? 'fa-bookmark' : 'fa-bookmark-o'}"></i> ${savedJobs.includes(job.id) ? 'Saved' : 'Save'}
+            </button>
+            <a href="https://wa.me/13124522798?text=I'm%20interested%20in%20the%20${encodeURIComponent(job.title)}%20position%20at%20${encodeURIComponent(job.company)}" target="_blank" class="apply-btn">
+              <i class="fab fa-whatsapp"></i> Apply Now
+            </a>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    // Render pagination
+    if (totalPages > 1) {
+      let paginationHTML = '';
+      for (let i = 1; i <= totalPages; i++) {
+        paginationHTML += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+      }
+      paginationDiv.innerHTML = paginationHTML;
+    } else {
+      paginationDiv.innerHTML = '';
+    }
+  }
+
+  function toggleSaveJob(jobId, event) {
+    event.stopPropagation();
+    const index = savedJobs.indexOf(jobId);
+    if (index === -1) {
+      savedJobs.push(jobId);
+    } else {
+      savedJobs.splice(index, 1);
+    }
+    localStorage.setItem('savedJobs', JSON.stringify(savedJobs));
+    renderJobs();
+  }
+
+  function goToPage(page) {
+    currentPage = page;
+    renderJobs();
+    window.scrollTo({ top: document.querySelector('.jobs-filter').offsetTop - 100, behavior: 'smooth' });
+  }
+
+  function resetFilters() {
+    currentFilter = "all";
+    currentSearch = "";
+    currentPage = 1;
+    document.getElementById('jobSearchInput').value = "";
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+    renderJobs();
+  }
+
+  // Event listeners
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.getAttribute('data-filter');
+      currentPage = 1;
+      renderJobs();
+    });
+  });
+
+  document.getElementById('jobSearchInput')?.addEventListener('input', (e) => {
+    currentSearch = e.target.value;
+    currentPage = 1;
+    renderJobs();
+  });
+
+  function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+    document.getElementById(`${pageId}-page`).classList.add('active-page');
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('nav-active'));
+    const activeMap = { home:'nav-home', jobs:'nav-jobs', whyus:'nav-whyus', requirements:'nav-req', apply:'nav-apply', motivation:'nav-motivation' };
+    if(activeMap[pageId]) document.getElementById(activeMap[pageId]).classList.add('nav-active');
+    if (pageId === 'jobs') renderJobs();
+  }
+
+  // Formspree AJAX
+  const discountForm = document.getElementById('discountForm');
+  const discountSubmitBtn = document.getElementById('discountSubmitBtn');
+  const discountSpinner = document.getElementById('discountSpinner');
+  const formEndpoint = 'https://formspree.io/f/xojzevoz';
+
+  if (discountForm) {
+    discountForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      discountSubmitBtn.disabled = true;
+      discountSpinner.style.display = 'inline-block';
+      const formData = new FormData(discountForm);
+      formData.append('_subject', 'New Scholarship/Job Discount Request');
+      try {
+        const response = await fetch(formEndpoint, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+        if (response.ok) {
+          alert('🎉 Thank you! Your 40% discount code is: FORTUNE40\n\nWe\'ll email you a copy within 24 hours.');
+          discountForm.reset();
+        } else {
+          alert('Something went wrong. Please try again or contact us on WhatsApp.');
+        }
+      } catch (error) {
+        alert('Network error. Please check your connection.');
+      } finally {
+        discountSubmitBtn.disabled = false;
+        discountSpinner.style.display = 'none';
+      }
+    });
+  }
+
+  // Newsletter form
+  document.getElementById('newsletterForm')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = e.target.querySelector('input').value;
+    alert(`Thanks for subscribing! We'll send job alerts to ${email}`);
+    e.target.reset();
+  });
+
+  // Modal and other UI
+  const modal = document.getElementById('contactModal');
+  document.getElementById('closeModalBtn')?.addEventListener('click', () => modal.style.display = 'none');
+  window.onclick = (e) => { if(e.target === modal) modal.style.display = 'none'; };
+
+  const scrollWrapper = document.getElementById('testimonialScroll');
+  const scrollLeft = document.getElementById('scrollLeftBtn');
+  const scrollRight = document.getElementById('scrollRightBtn');
+  if(scrollLeft && scrollRight && scrollWrapper) {
+    scrollLeft.addEventListener('click', () => scrollWrapper.scrollBy({ left: -300, behavior: 'smooth' }));
+    scrollRight.addEventListener('click', () => scrollWrapper.scrollBy({ left: 300, behavior: 'smooth' }));
+  }
+  
+  let spots = 87;
+  const counterSpan = document.getElementById('counter');
+  if(counterSpan) counterSpan.innerText = spots;
+  document.getElementById('nav-home').classList.add('nav-active');
+
+  // Initialize jobs on page load if needed
+  if (document.getElementById('jobs-page').classList.contains('active-page')) renderJobs();
+</script>
+</body>
+</html>
